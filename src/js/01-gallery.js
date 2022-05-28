@@ -1,14 +1,13 @@
 // Add imports above this line
 import { galleryItems } from './gallery-items';
 // Change code below this line
-import SimpleLightbox from "simplelightbox";
-import "simplelightbox/dist/simple-lightbox.min.css";
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 console.log(galleryItems);
 
-const galleryRefs = document.querySelector(".gallery");
-// galleryRefs.addEventListener("click", onModalClick);
+const galleryRefs = document.querySelector('.gallery');
 
-galleryRefs.insertAdjacentHTML("beforeend", createElement(galleryItems));
+galleryRefs.insertAdjacentHTML('beforeend', createElement(galleryItems));
 
 function createElement(gallery) {
   return gallery
@@ -17,6 +16,6 @@ function createElement(gallery) {
   <img class="gallery__image" src="${preview}" alt="${description}" />
 </a></li>`;
     })
-    .join("");
+    .join('');
 }
-new SimpleLightbox(".gallery a", { captionsData: "alt", captionsDelay: 250 });
+new SimpleLightbox('.gallery a', { captionsData: 'alt', captionsDelay: 250 });
