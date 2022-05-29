@@ -15,7 +15,6 @@ function textReader(e) {
     message: message.value,
   };
   localStorage.setItem(keyOfLocalStor, JSON.stringify(objectLocStorage));
-  // updateForm();
 }
 function handlerSubmit(e) {
   e.preventDefault();
@@ -25,9 +24,12 @@ function handlerSubmit(e) {
 }
 updateForm();
 function updateForm() {
-  const startFormText = JSON.parse(localStorage.getItem(keyOfLocalStor)) || '';
-  console.log(startFormText.email);
-  console.log(email.textContent);
-  email.textContent = startFormText.email;
-  message.textContent = startFormText.message;
+  const startFormText = JSON.parse(localStorage.getItem(keyOfLocalStor));
+  if (startFormText) {
+    email.value = startFormText.email;
+    message.value = startFormText.message;
+  } else {
+    email.value = '';
+    message.value = '';
+  }
 }
