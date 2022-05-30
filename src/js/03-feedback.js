@@ -5,14 +5,13 @@ const message = document.querySelector('textarea');
 const keyOfLocalStor = 'feedback-form-state';
 formRef.addEventListener('input', throttle(textReader, 500));
 formRef.addEventListener('submit', handlerSubmit);
-// const objectLocStorage = {
-//         email: email.value,
-//         message: message.value,
-//     }
+
 function textReader(e) {
   const objectLocStorage = {
-    email: email.value,
-    message: message.value,
+    keyOfLocalStor: {
+      email: email.value,
+      message: message.value,
+    }
   };
   localStorage.setItem(keyOfLocalStor, JSON.stringify(objectLocStorage));
 }
